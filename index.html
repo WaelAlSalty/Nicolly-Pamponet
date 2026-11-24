@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nicole | Criadora de Conteúdo Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf8f6;
+      --surface: #ffffff;
+      --text: #1c1917;
+      --muted: #78716c;
+      --accent: #d97757;
+      --accent-hover: #c26243;
+      --border: #e7e5e4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
+    }
+
+    /* Cabeçalho / Perfil */
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .avatar {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--surface);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      margin-bottom: 16px;
+      background-color: #e7e5e4;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: rgba(217, 119, 87, 0.12);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .bio {
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 480px;
+      margin: 0 auto 24px;
+    }
+
+    /* Métricas / Mídia Kit Rápido */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* Links Principais */
+    .section-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 16px 20px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .link-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .link-btn.primary {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    .link-btn.primary:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
+
+    .link-sub {
+      font-size: 0.82rem;
+      opacity: 0.75;
+      font-weight: 400;
+    }
+
+    /* Serviços / Formatos */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .service-card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 4px;
+    }
+
+    .service-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* Formulário Rápido de Parceria */
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .contact-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+
+    .contact-box p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--accent);
+      background: var(--surface);
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 14px;
+      background: var(--text);
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: opacity 0.15s ease;
+    }
+
+    button[type="submit"]:hover {
+      opacity: 0.9;
+    }
+
+    .feedback {
+      display: none;
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: #15803d;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 520px) {
+      .services {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 1.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Cabeçalho -->
+    <header>
+      <img 
+        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" 
+        alt="Foto de perfil Nicole" 
+        class="avatar"
+      />
+      <div class="badge">Criadora de Conteúdo Digital</div>
+      <h1>Nicole</h1>
+      <p class="bio">
+        Lifestyle, rotina real, beleza e criação de conteúdo autêntico para marcas que querem se conectar de verdade com o público.
+      </p>
+    </header>
+
+    <!-- Números / Alcance -->
+    <section class="stats" aria-label="Métricas principais">
+      <div class="stat-card">
+        <span class="stat-number">+45K</span>
+        <span class="stat-label">Seguidores</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">320K</span>
+        <span class="stat-label">Alcance Mensal</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">6,8%</span>
+        <span class="stat-label">Engajamento</span>
+      </div>
+    </section>
+
+    <!-- Links Diretos -->
+    <p class="section-title">Redes & Portfólio</p>
+    <nav class="links">
+      <a href="#contato" class="link-btn primary">
+        <span>Propostas & Publis</span>
+        <span class="link-sub">Falar comigo →</span>
+      </a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" class="link-btn">
+        <span>Instagram</span>
+        <span class="link-sub">@nicole</span>
+      </a>
+      <a href="https://tiktok.com" target="_blank" rel="noopener" class="link-btn">
+        <span>TikTok</span>
+        <span class="link-sub">@nicole</span>
+      </a>
+      <a href="https://youtube.com" target="_blank" rel="noopener" class="link-btn">
+        <span>YouTube</span>
+        <span class="link-sub">Vlogs & Rotina</span>
+      </a>
+    </nav>
+
+    <!-- Formatos de Trabalho -->
+    <p class="section-title">Como posso ajudar sua marca</p>
+    <section class="services">
+      <div class="service-card">
+        <h3>Vídeos UGC</h3>
+        <p>Conteúdo nativo e persuasivo para os anúncios e redes da sua empresa.</p>
+      </div>
+      <div class="service-card">
+        <h3>Publipost & Reels</h3>
+        <p>Divulgação orgânica integrada à minha rotina com alta retenção.</p>
+      </div>
+      <div class="service-card">
+        <h3>Sequência de Stories</h3>
+        <p>Apresentação detalhada de produto com cupom e link direto.</p>
+      </div>
+      <div class="service-card">
+        <h3>Presença & Eventos</h3>
+        <p>Cobertura em tempo real de lançamentos, lojas e ativações.</p>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="contact-box" id="contato">
+      <h2>Vamos criar juntos?</h2>
+      <p>Envie os detalhes da campanha ou solicite o mídia kit completo.</p>
+      <form id="contactForm">
+        <div class="form-group">
+          <input type="text" id="nome" placeholder="Seu nome ou marca" required />
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" placeholder="E-mail comercial" required />
+        </div>
+        <div class="form-group">
+          <textarea id="mensagem" rows="3" placeholder="Conte brevemente sobre a parceria..." required></textarea>
+        </div>
+        <button type="submit">Enviar mensagem</button>
+        <div class="feedback" id="feedbackMsg">
+          Mensagem preparada! Abrindo seu aplicativo de e-mail...
+        </div>
+      </form>
+    </section>
+
+    <footer>
+      © 2026 Nicole • Todos os direitos reservados
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const mensagem = document.getElementById('mensagem').value.trim();
+
+      const feedback = document.getElementById('feedbackMsg');
+      feedback.style.display = 'block';
+
+      const destino = 'contato@nicole.com.br';
+      const assunto = encodeURIComponent(`Parceria Comercial - ${nome}`);
+      const corpo = encodeURIComponent(`Nome/Marca: ${nome}\nE-mail: ${email}\n\nMensagem:\n${mensagem}`);
+
+      setTimeout(() => {
+        window.location.href = `mailto:${destino}?subject=${assunto}&body=${corpo}`;
+      }, 600);
+    });
+  </script>
+</body>
+</html>
