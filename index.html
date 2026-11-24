@@ -1,398 +1,491 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nicole | Criadora de Conteúdo Digital</title>
+  <title>Nicolly Pamponet | Digital Creator & UGC</title>
+  <meta name="description" content="Portfólio, Mídia Kit e Parcerias Comerciais de Nicolly Pamponet. Criação de conteúdo digital autêntico, lifestyle e UGC de alta conversão." />
+
+  <!-- Tipografia Editorial & Geométrica Moderna -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN para utilitários de precisão -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Cormorant Garamond"', 'serif'],
+          },
+          colors: {
+            obsidian: '#09090b',
+            charcoal: '#121215',
+            champagne: '#e8d5c4',
+            roseGold: '#d4a373',
+          },
+          animation: {
+            'marquee': 'marquee 28s linear infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    :root {
-      --bg: #faf8f6;
-      --surface: #ffffff;
-      --text: #1c1917;
-      --muted: #78716c;
-      --accent: #d97757;
-      --accent-hover: #c26243;
-      --border: #e7e5e4;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      background-color: #09090b;
+      color: #fafafa;
+      overflow-x: hidden;
     }
 
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 48px 20px 64px;
-    }
-
-    /* Cabeçalho / Perfil */
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .avatar {
-      width: 112px;
-      height: 112px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--surface);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      margin-bottom: 16px;
-      background-color: #e7e5e4;
-    }
-
-    .badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      background: rgba(217, 119, 87, 0.12);
-      padding: 4px 12px;
-      border-radius: 999px;
-      margin-bottom: 10px;
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
-    }
-
-    .bio {
-      color: var(--muted);
-      font-size: 0.98rem;
-      max-width: 480px;
-      margin: 0 auto 24px;
-    }
-
-    /* Métricas / Mídia Kit Rápido */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 36px;
-    }
-
-    .stat-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px 12px;
-      text-align: center;
-    }
-
-    .stat-number {
-      display: block;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .stat-label {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    /* Links Principais */
-    .section-title {
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 40px;
-    }
-
-    .link-btn {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 16px 20px;
-      border-radius: 14px;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .link-btn:hover {
-      transform: translateY(-2px);
-      border-color: var(--accent);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
-    }
-
-    .link-btn.primary {
-      background: var(--accent);
-      color: #ffffff;
-      border-color: var(--accent);
-    }
-
-    .link-btn.primary:hover {
-      background: var(--accent-hover);
-      border-color: var(--accent-hover);
-    }
-
-    .link-sub {
-      font-size: 0.82rem;
-      opacity: 0.75;
-      font-weight: 400;
-    }
-
-    /* Serviços / Formatos */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-bottom: 40px;
-    }
-
-    .service-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 18px;
-    }
-
-    .service-card h3 {
-      font-size: 0.98rem;
-      margin-bottom: 4px;
-    }
-
-    .service-card p {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    /* Formulário Rápido de Parceria */
-    .contact-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 24px;
-    }
-
-    .contact-box h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      margin-bottom: 6px;
-    }
-
-    .contact-box p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .form-group {
-      margin-bottom: 12px;
-    }
-
-    input, textarea {
+    /* Granulação sutil cinematográfica */
+    .noise-overlay {
+      position: fixed;
+      inset: 0;
       width: 100%;
-      padding: 12px 14px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      font-family: inherit;
-      font-size: 0.92rem;
-      background: var(--bg);
-      color: var(--text);
-      outline: none;
+      height: 100%;
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
-    input:focus, textarea:focus {
-      border-color: var(--accent);
-      background: var(--surface);
+    /* Glassmorphism avançado */
+    .glass-card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.015) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    button[type="submit"] {
-      width: 100%;
-      padding: 14px;
-      background: var(--text);
-      color: #ffffff;
-      border: none;
-      border-radius: 10px;
-      font-family: inherit;
-      font-size: 0.95rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: opacity 0.15s ease;
+    .glass-card:hover {
+      border-color: rgba(232, 213, 196, 0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 25px rgba(232, 213, 196, 0.08);
     }
 
-    button[type="submit"]:hover {
-      opacity: 0.9;
+    /* Brilho de fundo ambiente */
+    .ambient-glow {
+      background: radial-gradient(circle at 50% 0%, rgba(232, 213, 196, 0.14) 0%, rgba(212, 163, 115, 0.04) 40%, transparent 70%);
     }
 
-    .feedback {
-      display: none;
-      margin-top: 12px;
-      font-size: 0.85rem;
-      color: #15803d;
-      text-align: center;
-      font-weight: 500;
+    /* Animação Reveal no Scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: all 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.8rem;
-      color: var(--muted);
+    /* Barra de rolagem customizada */
+    ::-webkit-scrollbar {
+      width: 6px;
     }
-
-    @media (max-width: 520px) {
-      .services {
-        grid-template-columns: 1fr;
-      }
-      h1 {
-        font-size: 1.85rem;
-      }
+    ::-webkit-scrollbar-track {
+      background: #09090b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #27272a;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #e8d5c4;
     }
   </style>
 </head>
-<body>
+<body class="antialiased selection:bg-champagne selection:text-obsidian">
 
-  <div class="container">
-    <!-- Cabeçalho -->
-    <header>
-      <img 
-        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" 
-        alt="Foto de perfil Nicole" 
-        class="avatar"
-      />
-      <div class="badge">Criadora de Conteúdo Digital</div>
-      <h1>Nicole</h1>
-      <p class="bio">
-        Lifestyle, rotina real, beleza e criação de conteúdo autêntico para marcas que querem se conectar de verdade com o público.
-      </p>
-    </header>
+  <div class="noise-overlay"></div>
 
-    <!-- Números / Alcance -->
-    <section class="stats" aria-label="Métricas principais">
-      <div class="stat-card">
-        <span class="stat-number">+45K</span>
-        <span class="stat-label">Seguidores</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number">320K</span>
-        <span class="stat-label">Alcance Mensal</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number">6,8%</span>
-        <span class="stat-label">Engajamento</span>
-      </div>
-    </section>
-
-    <!-- Links Diretos -->
-    <p class="section-title">Redes & Portfólio</p>
-    <nav class="links">
-      <a href="#contato" class="link-btn primary">
-        <span>Propostas & Publis</span>
-        <span class="link-sub">Falar comigo →</span>
+  <!-- Navbar Flutuante Minimalista -->
+  <nav class="fixed top-5 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-3xl">
+    <div class="glass-card rounded-full px-6 py-3.5 flex items-center justify-between shadow-2xl">
+      <a href="#" class="font-serif text-xl tracking-wide text-champagne font-semibold">
+        Nicolly<span class="text-white/40">.</span>
       </a>
-      <a href="https://instagram.com" target="_blank" rel="noopener" class="link-btn">
-        <span>Instagram</span>
-        <span class="link-sub">@nicole</span>
+      <div class="hidden sm:flex items-center gap-7 text-xs uppercase tracking-[0.15em] text-zinc-400 font-medium">
+        <a href="#sobre" class="hover:text-white transition-colors">Sobre</a>
+        <a href="#metricas" class="hover:text-white transition-colors">Mídia Kit</a>
+        <a href="#formatos" class="hover:text-white transition-colors">Formatos</a>
+      </div>
+      <a href="#contato" class="bg-champagne text-obsidian text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full hover:bg-white transition-all shadow-lg shadow-champagne/10">
+        Parcerias
       </a>
-      <a href="https://tiktok.com" target="_blank" rel="noopener" class="link-btn">
-        <span>TikTok</span>
-        <span class="link-sub">@nicole</span>
-      </a>
-      <a href="https://youtube.com" target="_blank" rel="noopener" class="link-btn">
-        <span>YouTube</span>
-        <span class="link-sub">Vlogs & Rotina</span>
-      </a>
-    </nav>
+    </div>
+  </nav>
 
-    <!-- Formatos de Trabalho -->
-    <p class="section-title">Como posso ajudar sua marca</p>
-    <section class="services">
-      <div class="service-card">
-        <h3>Vídeos UGC</h3>
-        <p>Conteúdo nativo e persuasivo para os anúncios e redes da sua empresa.</p>
-      </div>
-      <div class="service-card">
-        <h3>Publipost & Reels</h3>
-        <p>Divulgação orgânica integrada à minha rotina com alta retenção.</p>
-      </div>
-      <div class="service-card">
-        <h3>Sequência de Stories</h3>
-        <p>Apresentação detalhada de produto com cupom e link direto.</p>
-      </div>
-      <div class="service-card">
-        <h3>Presença & Eventos</h3>
-        <p>Cobertura em tempo real de lançamentos, lojas e ativações.</p>
-      </div>
-    </section>
+  <!-- Hero Section Editorial -->
+  <header class="relative pt-32 pb-20 md:pt-40 md:pb-28 px-6 ambient-glow">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Coluna de Texto -->
+      <div class="lg:col-span-7 text-center lg:text-left order-2 lg:order-1">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.03] mb-6">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-[11px] uppercase tracking-[0.2em] text-zinc-300 font-medium">Disponível para campanhas • 2026</span>
+        </div>
 
-    <!-- Contato -->
-    <section class="contact-box" id="contato">
-      <h2>Vamos criar juntos?</h2>
-      <p>Envie os detalhes da campanha ou solicite o mídia kit completo.</p>
-      <form id="contactForm">
-        <div class="form-group">
-          <input type="text" id="nome" placeholder="Seu nome ou marca" required />
-        </div>
-        <div class="form-group">
-          <input type="email" id="email" placeholder="E-mail comercial" required />
-        </div>
-        <div class="form-group">
-          <textarea id="mensagem" rows="3" placeholder="Conte brevemente sobre a parceria..." required></textarea>
-        </div>
-        <button type="submit">Enviar mensagem</button>
-        <div class="feedback" id="feedbackMsg">
-          Mensagem preparada! Abrindo seu aplicativo de e-mail...
-        </div>
-      </form>
-    </section>
+        <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight leading-[1.05] text-white mb-6">
+          Nicolly <span class="italic text-champagne font-normal">Pamponet</span>
+        </h1>
 
-    <footer>
-      © 2026 Nicole • Todos os direitos reservados
-    </footer>
+        <p class="text-zinc-400 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8 font-light">
+          Criadora de conteúdo digital e especialista em <strong class="text-zinc-200 font-medium">UGC de alta estética</strong>. Transformo produtos e histórias de marcas em narrativas autênticas que geram desejo e conversão real.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+          <a href="#contato" class="w-full sm:w-auto px-8 py-4 rounded-full bg-champagne text-obsidian font-semibold text-sm tracking-wide hover:bg-white transition-all flex items-center justify-center gap-2 shadow-xl shadow-champagne/10">
+            Solicitar Mídia Kit & Orçamento
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </a>
+          <a href="#links" class="w-full sm:w-auto px-7 py-4 rounded-full border border-white/15 text-white text-sm font-medium hover:bg-white/5 transition-all flex items-center justify-center gap-2">
+            Redes Sociais
+          </a>
+        </div>
+      </div>
+
+      <!-- Coluna da Foto Principal (IMG-20261124-WA0163.jpg) -->
+      <div class="lg:col-span-5 order-1 lg:order-2 flex justify-center">
+        <div class="relative w-72 sm:w-80 md:w-[340px] aspect-[4/5] group">
+          <!-- Moldura decorativa traseira -->
+          <div class="absolute -inset-3 rounded-[2.2rem] bg-gradient-to-tr from-champagne/30 via-transparent to-roseGold/20 blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
+          
+          <div class="relative w-full h-full rounded-[2rem] overflow-hidden border border-white/15 bg-charcoal shadow-2xl">
+            <img 
+              src="IMG-20261124-WA0163.jpg" 
+              alt="Nicolly Pamponet - Criadora de Conteúdo Digital" 
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+            />
+            <!-- Gradiente sutil inferior para legibilidade do selo -->
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-transparent to-transparent"></div>
+            
+            <!-- Selo flutuante sobre a foto -->
+            <div class="absolute bottom-4 left-4 right-4 glass-card rounded-2xl p-3.5 flex items-center justify-between">
+              <div>
+                <p class="text-xs font-semibold text-white">Lifestyle • Beauty • UGC</p>
+                <p class="text-[11px] text-zinc-400">Brasil & Campanhas Globais</p>
+              </div>
+              <div class="w-8 h-8 rounded-full bg-champagne/20 flex items-center justify-center text-champagne">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Faixa Infinita (Marquee) de Especialidades -->
+  <div class="border-y border-white/10 bg-white/[0.02] py-4 overflow-hidden select-none">
+    <div class="flex whitespace-nowrap animate-marquee">
+      <div class="flex items-center gap-8 mx-4 text-xs uppercase tracking-[0.25em] text-zinc-400 font-medium">
+        <span>UGC Ads</span> <span class="text-champagne">✦</span>
+        <span>Lifestyle & Rotina</span> <span class="text-champagne">✦</span>
+        <span>Beleza & Skincare</span> <span class="text-champagne">✦</span>
+        <span>Moda & Estética</span> <span class="text-champagne">✦</span>
+        <span>Publiposts & Reels</span> <span class="text-champagne">✦</span>
+        <span>Storytelling de Marca</span> <span class="text-champagne">✦</span>
+      </div>
+      <!-- Duplicado para loop contínuo perfeito -->
+      <div class="flex items-center gap-8 mx-4 text-xs uppercase tracking-[0.25em] text-zinc-400 font-medium" aria-hidden="true">
+        <span>UGC Ads</span> <span class="text-champagne">✦</span>
+        <span>Lifestyle & Rotina</span> <span class="text-champagne">✦</span>
+        <span>Beleza & Skincare</span> <span class="text-champagne">✦</span>
+        <span>Moda & Estética</span> <span class="text-champagne">✦</span>
+        <span>Publiposts & Reels</span> <span class="text-champagne">✦</span>
+        <span>Storytelling de Marca</span> <span class="text-champagne">✦</span>
+      </div>
+    </div>
   </div>
 
+  <!-- Bento Grid: Mídia Kit & Métricas -->
+  <section id="metricas" class="py-24 px-6 max-w-5xl mx-auto reveal">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+      <div>
+        <span class="text-xs uppercase tracking-[0.2em] text-champagne font-semibold block mb-2">Performance & Audiência</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-white">Mídia Kit em Números</h2>
+      </div>
+      <p class="text-zinc-400 text-sm max-w-md">
+        Comunidade altamente engajada, majoritariamente feminina (18–34 anos), com forte poder de decisão de compra.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+      <!-- Card Destaque -->
+      <div class="md:col-span-6 glass-card rounded-3xl p-8 flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-8">
+          <span class="p-3 rounded-2xl bg-champagne/10 text-champagne">
+            <i data-lucide="trending-up" class="w-6 h-6"></i>
+          </span>
+          <span class="text-xs text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-full font-medium">+34% este trimestre</span>
+        </div>
+        <div>
+          <p class="text-4xl sm:text-5xl font-semibold text-white tracking-tight mb-2">+450K</p>
+          <p class="text-sm text-zinc-400">Impressões e alcance orgânico mensal multiplataforma</p>
+        </div>
+      </div>
+
+      <!-- Métricas Secundárias -->
+      <div class="md:col-span-6 grid grid-cols-2 gap-4">
+        <div class="glass-card rounded-3xl p-6 flex flex-col justify-between">
+          <i data-lucide="users" class="w-5 h-5 text-champagne mb-6"></i>
+          <div>
+            <p class="text-2xl sm:text-3xl font-semibold text-white mb-1">+50K</p>
+            <p class="text-xs text-zinc-400">Comunidade conectada</p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-3xl p-6 flex flex-col justify-between">
+          <i data-lucide="heart" class="w-5 h-5 text-champagne mb-6"></i>
+          <div>
+            <p class="text-2xl sm:text-3xl font-semibold text-white mb-1">7,4%</p>
+            <p class="text-xs text-zinc-400">Taxa média de engajamento</p>
+          </div>
+        </div>
+
+        <div class="col-span-2 glass-card rounded-3xl p-6 flex items-center justify-between">
+          <div>
+            <p class="text-sm font-medium text-white mb-1">Público Principal</p>
+            <p class="text-xs text-zinc-400">82% Mulheres • Brasil • Interesses em Beleza, Moda & Bem-estar</p>
+          </div>
+          <span class="text-champagne font-serif italic text-xl">Top Tier</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Central de Links Sociais -->
+  <section id="links" class="py-12 px-6 max-w-3xl mx-auto reveal">
+    <div class="text-center mb-10">
+      <span class="text-xs uppercase tracking-[0.2em] text-champagne font-semibold block mb-2">Conecte-se</span>
+      <h2 class="font-serif text-3xl sm:text-4xl text-white">Canais Oficiais</h2>
+    </div>
+
+    <div class="space-y-3.5">
+      <a href="https://instagram.com" target="_blank" rel="noopener" class="glass-card rounded-2xl p-5 flex items-center justify-between group">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-champagne group-hover:bg-champagne group-hover:text-obsidian transition-colors">
+            <i data-lucide="instagram" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-medium text-white text-base">Instagram</h3>
+            <p class="text-xs text-zinc-400">@nicollypamponet • Rotina, reels e bastidores</p>
+          </div>
+        </div>
+        <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-500 group-hover:text-champagne group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+      </a>
+
+      <a href="https://tiktok.com" target="_blank" rel="noopener" class="glass-card rounded-2xl p-5 flex items-center justify-between group">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-champagne group-hover:bg-champagne group-hover:text-obsidian transition-colors">
+            <i data-lucide="video" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-medium text-white text-base">TikTok</h3>
+            <p class="text-xs text-zinc-400">@nicollypamponet • Trends, reviews e vlogs dinâmicos</p>
+          </div>
+        </div>
+        <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-500 group-hover:text-champagne group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+      </a>
+
+      <a href="https://youtube.com" target="_blank" rel="noopener" class="glass-card rounded-2xl p-5 flex items-center justify-between group">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-champagne group-hover:bg-champagne group-hover:text-obsidian transition-colors">
+            <i data-lucide="play" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-medium text-white text-base">YouTube</h3>
+            <p class="text-xs text-zinc-400">Nicolly Pamponet • Vlogs completos e favoritos do mês</p>
+          </div>
+        </div>
+        <i data-lucide="arrow-up-right" class="w-5 h-5 text-zinc-500 group-hover:text-champagne group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Formatos de Parceria -->
+  <section id="formatos" class="py-24 px-6 max-w-5xl mx-auto reveal">
+    <div class="text-center mb-14">
+      <span class="text-xs uppercase tracking-[0.2em] text-champagne font-semibold block mb-2">Escopo Comercial</span>
+      <h2 class="font-serif text-3xl sm:text-4xl text-white">Soluções para Marcas</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div class="glass-card rounded-3xl p-8">
+        <div class="w-11 h-11 rounded-2xl bg-champagne/10 text-champagne flex items-center justify-center mb-6">
+          <i data-lucide="film" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-xl font-medium text-white mb-2">UGC (User Generated Content)</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          Vídeos verticais roteirizados com ganchos de retenção, iluminação profissional e estética nativa para rodar em tráfego pago (Meta/TikTok Ads) ou no perfil da sua marca.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8">
+        <div class="w-11 h-11 rounded-2xl bg-champagne/10 text-champagne flex items-center justify-center mb-6">
+          <i data-lucide="sparkles" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-xl font-medium text-white mb-2">Publipost & Reels Colaborativo</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          Integração orgânica do seu produto na minha rotina real, gerando prova social, autoridade e alcance qualificado junto à minha audiência.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8">
+        <div class="w-11 h-11 rounded-2xl bg-champagne/10 text-champagne flex items-center justify-center mb-6">
+          <i data-lucide="smartphone" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-xl font-medium text-white mb-2">Combo de Stories & Cupom</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          Sequência estratégica de storytelling com demonstração de uso, unboxing detalhado e chamada direta para conversão com link rastreável.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-8">
+        <div class="w-11 h-11 rounded-2xl bg-champagne/10 text-champagne flex items-center justify-center mb-6">
+          <i data-lucide="camera" class="w-5 h-5"></i>
+        </div>
+        <h3 class="text-xl font-medium text-white mb-2">Presença VIP & Eventos</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          Cobertura em tempo real de lançamentos, inaugurações, press trips e ativações exclusivas de marca com entrega rápida de material.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Contato / Briefing -->
+  <section id="contato" class="py-20 px-6 max-w-3xl mx-auto reveal">
+    <div class="glass-card rounded-[2.2rem] p-8 sm:p-12 relative overflow-hidden">
+      <div class="absolute -top-24 -right-24 w-64 h-64 bg-champagne/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="text-center mb-8">
+        <span class="text-xs uppercase tracking-[0.2em] text-champagne font-semibold block mb-2">Assessoria & Comercial</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-white mb-3">Vamos criar algo memorável?</h2>
+        <p class="text-sm text-zinc-400 max-w-md mx-auto">
+          Preencha os dados abaixo para iniciar uma proposta comercial ou solicitar o mídia kit completo em PDF.
+        </p>
+      </div>
+
+      <form id="briefingForm" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="marca" class="block text-xs text-zinc-400 mb-1.5 ml-1">Seu nome ou Empresa</label>
+            <input type="text" id="marca" required placeholder="Ex: Studio Glow"
+              class="w-full px-4 py-3.5 rounded-xl bg-white/[0.04] border border-white/10 text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-champagne transition-colors" />
+          </div>
+          <div>
+            <label for="formato" class="block text-xs text-zinc-400 mb-1.5 ml-1">Formato de interesse</label>
+            <select id="formato"
+              class="w-full px-4 py-3.5 rounded-xl bg-charcoal border border-white/10 text-white text-sm focus:outline-none focus:border-champagne transition-colors">
+              <option value="Vídeos UGC">Vídeos UGC (Ads / Orgânico)</option>
+              <option value="Publipost / Reels">Publipost / Reels</option>
+              <option value="Pacote Completo">Pacote Completo (Reels + Stories)</option>
+              <option value="Solicitar Mídia Kit">Apenas Mídia Kit & Tabela</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="detalhes" class="block text-xs text-zinc-400 mb-1.5 ml-1">Detalhes da campanha</label>
+          <textarea id="detalhes" rows="3" required placeholder="Conte brevemente sobre o produto, prazo ou objetivo..."
+            class="w-full px-4 py-3.5 rounded-xl bg-white/[0.04] border border-white/10 text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-champagne transition-colors"></textarea>
+        </div>
+
+        <div class="pt-2 flex flex-col sm:flex-row gap-3">
+          <button type="submit"
+            class="flex-1 py-4 px-6 rounded-xl bg-champagne text-obsidian font-semibold text-sm hover:bg-white transition-all flex items-center justify-center gap-2 cursor-pointer">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            Enviar Proposta por E-mail
+          </button>
+          <button type="button" id="whatsappBtn"
+            class="py-4 px-6 rounded-xl border border-white/15 text-white font-medium text-sm hover:bg-white/5 transition-all flex items-center justify-center gap-2 cursor-pointer">
+            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+            WhatsApp
+          </button>
+        </div>
+
+        <p id="statusMsg" class="hidden text-center text-xs text-champagne pt-2"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="border-t border-white/10 py-10 px-6 text-center">
+    <p class="font-serif text-xl text-champagne mb-2">Nicolly Pamponet</p>
+    <p class="text-xs text-zinc-500">
+      © 2026 Nicolly Pamponet • Todos os direitos reservados.
+    </p>
+  </footer>
+
   <script>
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
+    // Inicializa ícones Lucide
+    lucide.createIcons();
+
+    // Animação suave ao rolar a página (Intersection Observer)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    // Configurações de contato (Substitua pelos dados reais da Nicolly)
+    const EMAIL_COMERCIAL = 'contato@nicollypamponet.com.br';
+    const WHATSAPP_NUMERO = '5548999999999'; // Formato: 55 + DDD + Número
+
+    const statusMsg = document.getElementById('statusMsg');
+
+    // Envio por E-mail
+    document.getElementById('briefingForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const nome = document.getElementById('nome').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const mensagem = document.getElementById('mensagem').value.trim();
+      const marca = document.getElementById('marca').value.trim();
+      const formato = document.getElementById('formato').value;
+      const detalhes = document.getElementById('detalhes').value.trim();
 
-      const feedback = document.getElementById('feedbackMsg');
-      feedback.style.display = 'block';
+      statusMsg.textContent = 'Abrindo seu aplicativo de e-mail com o briefing pronto...';
+      statusMsg.classList.remove('hidden');
 
-      const destino = 'contato@nicole.com.br';
-      const assunto = encodeURIComponent(`Parceria Comercial - ${nome}`);
-      const corpo = encodeURIComponent(`Nome/Marca: ${nome}\nE-mail: ${email}\n\nMensagem:\n${mensagem}`);
+      const assunto = encodeURIComponent(`Parceria Comercial [${formato}] - ${marca}`);
+      const corpo = encodeURIComponent(`Olá Nicolly,\n\nMarca/Contato: ${marca}\nFormato de interesse: ${formato}\n\nDetalhes:\n${detalhes}`);
 
       setTimeout(() => {
-        window.location.href = `mailto:${destino}?subject=${assunto}&body=${corpo}`;
-      }, 600);
+        window.location.href = `mailto:${EMAIL_COMERCIAL}?subject=${assunto}&body=${corpo}`;
+      }, 500);
+    });
+
+    // Envio direto para WhatsApp
+    document.getElementById('whatsappBtn').addEventListener('click', function() {
+      const marca = document.getElementById('marca').value.trim() || 'uma marca';
+      const formato = document.getElementById('formato').value;
+      const texto = encodeURIComponent(`Olá Nicolly! Sou de ${marca} e gostaria de conversar sobre uma parceria (${formato}).`);
+      window.open(`https://wa.me/${WHATSAPP_NUMERO}?text=${texto}`, '_blank');
     });
   </script>
 </body>
